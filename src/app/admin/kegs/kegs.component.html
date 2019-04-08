@@ -1,3 +1,7 @@
-<p>
-  <app-keg [name]="'NomNom'"></app-keg>
-</p>
+<!--<p>
+  <app-keg [keg]="keg"></app-keg>
+</p>-->
+
+<li *ngFor="let keg of kegs"> 
+  <app-keg [keg]="keg"></app-keg>
+</li>

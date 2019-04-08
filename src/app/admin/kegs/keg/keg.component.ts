@@ -6,11 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./keg.component.scss']
 })
 export class KegComponent implements OnInit {
-  @Input() name: any;
+  @Input() keg:any;
   constructor() { }
 
   ngOnInit() {
-    console.log(this.name)
   }
 
 }
