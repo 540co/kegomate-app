@@ -15,6 +15,8 @@ import { KegsComponent } from './admin/kegs/kegs.component';
 import { KegComponent } from './admin/kegs/keg/keg.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { GaugeComponent } from './home/levels/gauge/gauge.component';
+import { ChangeComponent } from './admin/change/change.component';
+import { AdjustComponent } from './admin/adjust/adjust.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { GaugeComponent } from './home/levels/gauge/gauge.component';
     KegsComponent,
     KegComponent,
     NavigationComponent,
-    GaugeComponent
+    GaugeComponent,
+    ChangeComponent,
+    AdjustComponent
   ],
   imports: [
     BrowserModule,

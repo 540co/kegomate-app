@@ -1,10 +1,14 @@
-<p>
-  Keg {{keg.number}}
+<p class="font-weight-bold">
   <br>
+  Keg {{keg.number}}
+</p>
+<p>
   Currently Serving: {{keg.name}} by {{keg.brand}}
   <br>
   <br> 
-  <button routerLink="/home" routerLinkActive="active" class="col-lg-2"d>Adjust Level </button> &nbsp;&nbsp;
-  <button routerLink="/change" routerLinkActive="active" class="col-lg-2">Change Coffee</button>  &nbsp;&nbsp;
-  <button routerLink="/home" routerLinkActive="active" class="col-lg-2">Notifications</button>
+  &nbsp;&nbsp;<button routerLink="/admin/adjust" routerLinkActive="active" class="col-lg-2"d>Adjust Level </button> &nbsp;&nbsp;
+  <button routerLink="/admin/change" routerLinkActive="active" class="col-lg-2">Change Coffee</button>  &nbsp;&nbsp;
+  <button routerLink="/admin/notifications" routerLinkActive="active" class="col-lg-2">Notifications</button>
 </p>
+
+

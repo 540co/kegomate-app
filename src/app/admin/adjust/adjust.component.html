@@ -1,0 +1,28 @@
+<p class="font-weight-bold">
+    Adjust Coffee Levels
+    <br>  
+    Please adjust coffee level for tap. 
+    <br>
+    <br>
+  </p>
+  <p>
+    &nbsp;&nbsp;Keg: 
+<!--    <select ng-app="myApp" ng-controller="myCtrl" ng-model="selectedName" ng-options="x for x in names">
+      </select> -->
+      <select ng-model="selectedName"> <option *ngFor="let keg of kegs" value= {{keg.number}}>
+          {{keg.number}}
+        </option>
+        </select>
+    <br>
+    &nbsp;&nbsp;New Level: 
+    <input ng-model="level">
+    <br>
+    <br>
+    <button routerLink="/admin">Submit </button> &nbsp;&nbsp;
+  </p>
+  <script>
+      var app = angular.module('myApp', []);
+      app.controller('myCtrl', function($scope) {
+          $scope.names = ["Emil", "Tobias", "Linus"];
+      });
+      </script>
