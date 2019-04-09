@@ -1,10 +1,10 @@
 <p>
-  Keg One
+  Keg {{keg.number}}
   <br>
   Currently Serving: {{keg.name}} by {{keg.brand}}
   <br>
   <br> 
-  <button mat-raised-button color="primary" (click)="doSomething(1)">Adjust Level</button> &nbsp;&nbsp;
-  <button mat-raised-button color="accent" (click)="doSomething(2)">Change Coffee</button>  &nbsp;&nbsp;
-  <button mat-raised-button color="warn" (click)="doSomething(3)">Notification</button>
+  <button routerLink="/home" routerLinkActive="active" class="col-lg-2"d>Adjust Level </button> &nbsp;&nbsp;
+  <button routerLink="/change" routerLinkActive="active" class="col-lg-2">Change Coffee</button>  &nbsp;&nbsp;
+  <button routerLink="/home" routerLinkActive="active" class="col-lg-2">Notifications</button>
 </p>
