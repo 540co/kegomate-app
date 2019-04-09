@@ -4,7 +4,7 @@
   Currently Serving: {{keg.name}} by {{keg.brand}}
   <br>
   <br> 
-  <button ng-click="count = count + 1" ng-init="count=0">Adjust Level</button> &nbsp;&nbsp;
-  <button ng-click="count = count + 1" ng-init="count=0">Change Coffee</button>  &nbsp;&nbsp;
-  <button ng-click="count = count + 1" ng-init="count=0">Notification</button>
+  <button mat-raised-button color="primary" (click)="doSomething(1)">Adjust Level</button> &nbsp;&nbsp;
+  <button mat-raised-button color="accent" (click)="doSomething(2)">Change Coffee</button>  &nbsp;&nbsp;
+  <button mat-raised-button color="warn" (click)="doSomething(3)">Notification</button>
 </p>

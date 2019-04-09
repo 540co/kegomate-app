@@ -12,4 +12,8 @@ export class KegComponent implements OnInit {
   ngOnInit() {
   }
 
+  doSomething(kegNumber) {
+    console.log("This was called on keg " + kegNumber);
+  }
+
 }

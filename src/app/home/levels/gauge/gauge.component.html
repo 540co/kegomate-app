@@ -1,0 +1,11 @@
+<div class="gauge-container col-md-4 float-left">
+  <div class="keg-meter">
+    <div class="progress rotate-vertical">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="kegDetails.percentRemaining" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ 'width': kegDetails.percentRemaining + '%' }"></div>
+    </div>
+  </div>
+  <div class="keg-details">
+    <div class="name">{{kegDetails.name}}</div>
+    <div class="brand">{{kegDetails.brand}}</div>
+  </div>
+</div>

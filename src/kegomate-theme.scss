@@ -1,0 +1,11 @@
+@import '~@angular/material/_theming.scss';
+
+@include mat-core();
+
+$keg-app-primary: mat-palette($mat-brown, 900);
+$keg-app-accent:  mat-palette($mat-blue-gray, 500);
+$keg-app-warn:    mat-palette($mat-deep-orange, 300);
+
+$keg-app-theme: mat-light-theme($keg-app-primary, $keg-app-accent, $keg-app-warn);
+
+@include angular-material-theme($keg-app-theme);
