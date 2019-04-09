@@ -1,41 +1,11 @@
 <div class="activity-container">
-  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" *ngFor="let event of activity">
     <div class="toast-header">
       <strong class="mr-auto"><i class="fas fa-coffee"></i>&nbsp;&nbsp;Mmmm Coffee</strong>
-      <small>1 mins ago</small>
+      <small>{{event.time}}</small>
     </div>
     <div class="toast-body">
-      A guest poured 10oz of NomNom
-    </div>
-  </div>
-
-  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <strong class="mr-auto text-danger"><i class="fas fa-skull-crossbones"></i>&nbsp;&nbsp;LOW KEG WARNING</strong>
-      <small>11 mins ago</small>
-    </div>
-    <div class="toast-body">
-      Big Blue is getting low
-    </div>
-  </div>
-
-  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <strong class="mr-auto"><i class="fas fa-coffee"></i>&nbsp;&nbsp;Mmmm Coffee</strong>
-      <small>13 mins ago</small>
-    </div>
-    <div class="toast-body">
-      A guest poured 10oz of Big Blue
-    </div>
-  </div>
-
-  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <strong class="mr-auto"><i class="fas fa-coffee"></i>&nbsp;&nbsp;Mmmm Coffee</strong>
-      <small>19 mins ago</small>
-    </div>
-    <div class="toast-body">
-      A guest poured 10oz of NomNom
+      {{event.user.name}} poured {{event.volume}}oz of {{event.coffee.name}}
     </div>
   </div>
 </div>

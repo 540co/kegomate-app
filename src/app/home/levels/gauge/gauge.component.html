@@ -1,15 +1,15 @@
 <div class="gauge-container col-md-4 float-left">
   <div class="keg-meter">
     <div class="progress">
-      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="kegDetails.percentRemaining" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ 'width': kegDetails.percentRemaining + '%' }"></div>
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="kegDetails.estRemaining" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ 'width': kegDetails.estRemaining + '%' }"></div>
     </div>
   </div>
   <div class="keg-details">
     <div class="name">
-      <i class="fas fa-exclamation-triangle text-danger" *ngIf="kegDetails.percentRemaining <= 20"></i>
-      {{kegDetails.name}}
-      <i class="fas fa-exclamation-triangle text-danger" *ngIf="kegDetails.percentRemaining <= 20"></i>
+      <i class="fas fa-exclamation-triangle text-danger" *ngIf="kegDetails.estRemaining <= 20"></i>
+      {{kegDetails.coffee.name}}
+      <i class="fas fa-exclamation-triangle text-danger" *ngIf="kegDetails.estRemaining <= 20"></i>
     </div>
-    <div class="brand">{{kegDetails.brand}}</div>
+    <div class="brand">{{kegDetails.coffee.brand}}</div>
   </div>
 </div>

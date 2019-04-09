@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { KegomateService } from 'src/app/services/kegomate.service';
+
 @Component({
   selector: 'app-levels',
   templateUrl: './levels.component.html',
@@ -7,15 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LevelsComponent implements OnInit {
 
-  public activeKegs: any[] = [
-    { id: 1, name: "NomNom", brand: "Counter Culture", percentRemaining: 70 },
-    { id: 2, name: "Big Blue", brand: "Snowing in Space", percentRemaining: 20 },
-    { id: 3, name: "Something else..", brand: "Starbucks", percentRemaining: 50 }
-  ]
+  public activeKegs: any = null;
 
-  constructor() { }
+  constructor(private kegomateServive: KegomateService) { }
 
   ngOnInit() {
+    this.getActiveKegs();
+  }
+
+  getActiveKegs() {
+    this.kegomateServive.getActiveKegs().then(
+      (data: any) => {
+        this.activeKegs =  data;
+      },
+      err => console.error(err)
+    );
   }
 
 }
