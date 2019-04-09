@@ -1,3 +1,6 @@
-<span *ngFor="let keg of activeKegs">
-  <app-gauge [kegDetails]="keg"></app-gauge>
-</span>
+
+<div class="levels-container">
+  <div *ngFor="let keg of activeKegs">
+    <app-gauge [kegDetails]="keg"></app-gauge>
+  </div>
+</div>

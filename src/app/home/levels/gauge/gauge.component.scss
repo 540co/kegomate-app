@@ -1,21 +1,18 @@
 .gauge-container {
+  margin-top: 5.5vw;
   text-align: center;
-  margin-top: 10px;
   .keg-meter {
-    margin-bottom: 65px;
+    align-items: center;
+    transform: rotate(-90deg);
     .progress {
-      transform: rotate(-90deg);
-      transform-origin: middle bottom;
-      margin-top: 60px;
-      height: 100px;
-      width: 120%;
-      margin-left: -10%;
+      height: 5vw;
       .progress-bar {
         background-color: #3E2723;
       }
     }
   }
   .keg-details {
+    margin-top: 5vw;
     .name {
       font-size: 1.2em;
     }
