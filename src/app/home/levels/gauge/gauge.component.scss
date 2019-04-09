@@ -5,14 +5,16 @@
     align-items: center;
     transform: rotate(-90deg);
     .progress {
-      height: 5vw;
+      height: 6vw;
+      box-shadow: 0 0.15rem 0.3rem rgba(0,0,0,.3);
+      background-color: #EFEBE9;
       .progress-bar {
         background-color: #3E2723;
       }
     }
   }
   .keg-details {
-    margin-top: 5vw;
+    margin-top: 5.5vw;
     .name {
       font-size: 1.2em;
     }

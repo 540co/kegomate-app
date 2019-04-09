@@ -5,7 +5,11 @@
     </div>
   </div>
   <div class="keg-details">
-    <div class="name">{{kegDetails.name}}</div>
+    <div class="name">
+      <i class="fas fa-exclamation-triangle text-danger" *ngIf="kegDetails.percentRemaining <= 20"></i>
+      {{kegDetails.name}}
+      <i class="fas fa-exclamation-triangle text-danger" *ngIf="kegDetails.percentRemaining <= 20"></i>
+    </div>
     <div class="brand">{{kegDetails.brand}}</div>
   </div>
 </div>
