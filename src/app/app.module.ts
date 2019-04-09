@@ -8,6 +8,8 @@ import { AdminComponent } from './admin/admin.component';
 import { LevelsComponent } from './home/levels/levels.component';
 import { ActivityComponent } from './home/activity/activity.component';
 import { ChartsComponent } from './home/charts/charts.component';
+import { KegsComponent } from './admin/kegs/kegs.component';
+import { KegComponent } from './admin/kegs/keg/keg.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ChartsComponent } from './home/charts/charts.component';
     AdminComponent,
     LevelsComponent,
     ActivityComponent,
-    ChartsComponent
+    ChartsComponent,
+    KegsComponent,
+    KegComponent
   ],
   imports: [
     BrowserModule,
