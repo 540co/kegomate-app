@@ -19,6 +19,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { GaugeComponent } from './home/levels/gauge/gauge.component';
 import { ChangeComponent } from './admin/change/change.component';
 import { AdjustComponent } from './admin/adjust/adjust.component';
+import { NotificationsComponent } from './admin/notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AdjustComponent } from './admin/adjust/adjust.component';
     NavigationComponent,
     GaugeComponent,
     ChangeComponent,
-    AdjustComponent
+    AdjustComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
