@@ -1,13 +1,16 @@
 <p class="font-weight-bold">
   Change Coffee
   <br>  
-  Please insert information for the new coffee on tap. 
+  Please insert information for the new coffee on tap
   <br>
   <br>
 </p>
 <p>
   &nbsp;&nbsp;Keg: 
-  <input ng-model="keg">
+      <select ng-model="selectedName"> <option *ngFor="let keg of kegs" value= {{keg.id}}>
+        {{keg.id}}
+      </option>
+      </select>
   <br>
   &nbsp;&nbsp;Name: 
   <input ng-model="name">

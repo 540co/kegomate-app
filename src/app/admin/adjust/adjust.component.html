@@ -1,18 +1,16 @@
 <p class="font-weight-bold">
     Adjust Coffee Levels
     <br>  
-    Please adjust coffee level for tap. 
+    Please adjust coffee level for tap 
     <br>
     <br>
   </p>
   <p>
     &nbsp;&nbsp;Keg: 
-<!--    <select ng-app="myApp" ng-controller="myCtrl" ng-model="selectedName" ng-options="x for x in names">
-      </select> -->
-      <select ng-model="selectedName"> <option *ngFor="let keg of kegs" value= {{keg.number}}>
-          {{keg.number}}
-        </option>
-        </select>
+    <select ng-model="selectedName"> <option *ngFor="let keg of kegs" value= {{keg.id}}>
+        {{keg.id}}
+      </option>
+      </select>
     <br>
     &nbsp;&nbsp;New Level: 
     <input ng-model="level">

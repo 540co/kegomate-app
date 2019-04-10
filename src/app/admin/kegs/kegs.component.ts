@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 
 export class KegsComponent implements OnInit {
   public kegs: any[] = [
-	  {number:'One', name:'NomNom',brand:'Snowing in Space Coffe Co'},
-    {number:'Two', name:'Gimme Dat!',brand:'Snowing in Space Coffe Co'},
-    {number:'Three', name:'Mexican Chiapas',brand:'Black Hand'}
+	  {id:1, name:'NomNom',brand:'Snowing in Space Coffe Co'},
+    {id:2, name:'Big Blue',brand:'Snowing in Space Coffe Co'},
+    {id:3, name:'Gimme Dat!',brand:'Snowing in Space Coffe Co'}
   ];
   constructor() { }
 

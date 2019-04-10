@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 
 export class AdjustComponent implements OnInit {
   public kegs: any[] = [
-    {number: 'Select'},
-    {number:'One'},
-    {number:'Two'},
-    {number:'Three'}
+    {id: 'Select'},
+    {id:1},
+    {id:2},
+    {id:3}
   ];
 
   constructor() { }
