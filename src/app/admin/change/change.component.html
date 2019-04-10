@@ -1,33 +1,36 @@
-<p class="font-weight-bold">
-  <br>
-  Change Coffee
-  <br>  
-  Please insert information for the new coffee on tap
-  <br>
-  <br>
-</p>
-<p>
-  &nbsp;&nbsp;Keg: 
-      <select ng-model="selectedName"> <option *ngFor="let keg of kegs" value= {{keg.id}}>
-        {{keg.id}}
+<div class="keg-details">
+  <p class="name">
+    <br>
+    Change Coffee
+    <br>
+  </p>
+  <p class="brand">
+    Please insert information for the new coffee on tap
+    <br>
+    <br>
+    &nbsp;&nbsp;Keg:
+    <select ng-model="selectedName">
+      <option *ngFor="let keg of activeKegs" value={{keg.kegId}}>
+        {{keg.kegId}}
       </option>
-      </select>
-  <br>
-  &nbsp;&nbsp;Name: 
-  <input ng-model="name">
-  <br>
-  &nbsp;&nbsp;Brand: 
-  <input ng-model="brand">
-  <br>
-  &nbsp;&nbsp;Description: 
-  <input ng-model="notes">
-  <br>
-  &nbsp;&nbsp;Rating: 
-  <input ng-model="rating">
-  <br>
-  &nbsp;&nbsp;Caffeine Level: 
-  <input ng-model="caffeine">
-  <br>
-  <br>
-  <button routerLink="/admin">Submit </button> &nbsp;&nbsp;
-</p>
+    </select>
+    <br>
+    &nbsp;&nbsp;Name:
+    <input ng-model="name">
+    <br>
+    &nbsp;&nbsp;Brand:
+    <input ng-model="brand">
+    <br>
+    &nbsp;&nbsp;Description:
+    <input ng-model="notes">
+    <br>
+    &nbsp;&nbsp;Rating:
+    <input ng-model="rating">
+    <br>
+    &nbsp;&nbsp;Caffeine Level:
+    <input ng-model="caffeine">
+    <br>
+    <br>
+    <button routerLink="/admin">Submit </button> &nbsp;&nbsp;
+  </p>
+</div>

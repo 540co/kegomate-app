@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KegomateService } from 'src/app/services/kegomate.service';
 
 @Component({
   selector: 'app-change',
@@ -6,15 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./change.component.scss']
 })
 export class ChangeComponent implements OnInit {
-  public kegs: any[] = [
-    {id: 'Select'},
-    {id:1},
-    {id:2},
-    {id:3}
-  ];
-  constructor() { }
+ // public kegs: any[] = [
+ //   {id: 'Select'},
+ //   {id:1},
+ //   {id:2},
+ //   {id:3}
+ // ];
+ public activeKegs: any = null;
 
-  ngOnInit() {
-  }
+ constructor(private kegomateServive: KegomateService) { }
+
+ ngOnInit() {
+   this.getActiveKegs();
+ }
+
+ getActiveKegs() {
+   this.kegomateServive.getActiveKegs().then(
+     (data: any) => {
+       this.activeKegs =  data;
+     },
+     err => console.error(err)
+   );
+ }
 
 }

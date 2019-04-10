@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KegomateService } from 'src/app/services/kegomate.service';
 
 @Component({
   selector: 'app-adjust',
@@ -7,17 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AdjustComponent implements OnInit {
-  public kegs: any[] = [
-    {id: 'Select'},
-    {id:1},
-    {id:2},
-    {id:3}
-  ];
+ // public kegs: any[] = [
+ //   {id: 'Select'},
+ //   {id:1},
+ //   {id:2},
+ //   {id:3}
+ // ];
+ public activeKegs: any = null;
 
-  constructor() { }
+ constructor(private kegomateServive: KegomateService) { }
 
-  ngOnInit() {
-  }
+ ngOnInit() {
+   this.getActiveKegs();
+ }
+
+ getActiveKegs() {
+   this.kegomateServive.getActiveKegs().then(
+     (data: any) => {
+       this.activeKegs =  data;
+     },
+     err => console.error(err)
+   );
+ }
 
 }
 

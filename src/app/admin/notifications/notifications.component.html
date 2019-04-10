@@ -1,23 +1,29 @@
-<p class="font-weight-bold">
+<div class="keg-details">
+  <div class="name"><br>
+    Generate Notification
+    <br>
+  </div>
   <br>
-  Generate Notification
-  <br>  
-  Please insert Notification information below
-  <br>
-  <br>
-</p>
-<p>
-  &nbsp;&nbsp;Notify: 
-  <select ng-model="selectedName"> <option *ngFor="let person of people" value= {{person.name}}>
-      {{person.name}}
-    </option>
+  <div class="brand">
+    Please insert Notification information below
+    <br>
+    <br>
+    &nbsp;&nbsp;Notify:
+    <select ng-model="selectedName">
+      <option *ngFor="let person of people" value={{person.name}}>
+        {{person.name}}
+      </option>
     </select>
-  <br>
-  &nbsp;&nbsp;If Other, Please Specify: 
-  &nbsp;&nbsp;<input ng-model="level">
-  <br>
-  &nbsp;&nbsp;Notification: 
-  <input ng-model="level" type="text" class="form-control" placeholder="Tap 1 NomNom by Snowing in Space Coffe Co is kicked."> 
-  <br>
-  <button routerLink="/admin">Submit </button> &nbsp;&nbsp;
-</p>
+    <br>
+    &nbsp;&nbsp;If Other, Please Specify:
+    &nbsp;&nbsp;<input ng-model="level">
+    <br>
+    &nbsp;&nbsp;Notification:
+    <div class="col-md-4">
+      <input ng-model="level" type="text" class="form-control"
+        placeholder="Tap 1 NomNom by Snowing in Space Coffe Co is kicked.">
+    </div>
+    <br>
+    <button routerLink="/admin">Submit </button> &nbsp;&nbsp;
+  </div>
+</div>
