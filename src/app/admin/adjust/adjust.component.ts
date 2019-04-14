@@ -23,7 +23,7 @@ export class AdjustComponent implements OnInit {
  }
 
  getActiveKegs() {
-   this.kegomateServive.getActiveKegs().then(
+   this.kegomateServive.getActiveKegs().subscribe(
      (data: any) => {
        this.activeKegs =  data;
      },

@@ -5,7 +5,7 @@
       <small>{{event.time}}</small>
     </div>
     <div class="toast-body">
-      {{event.user.name}} poured {{event.volume}}oz of {{event.coffee.name}}
+      {{event.user.name}} poured {{event.volume.$numberDouble || event.volume.$numberLong}}oz of {{event.coffee.name}}
     </div>
   </div>
 </div>

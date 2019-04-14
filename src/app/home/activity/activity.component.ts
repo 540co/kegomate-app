@@ -18,7 +18,7 @@ export class ActivityComponent implements OnInit {
   }
 
   getRecentActivity() {
-    this.kegomateServive.getRecentActivity().then(
+    this.kegomateServive.getRecentActivity().subscribe(
       (data: any) => {
         this.activity =  data;
       },

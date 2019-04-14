@@ -1,14 +1,13 @@
 <div class="keg-details">
   <div class="name">
     <br>
-    Keg {{kegDetails.kegId}}
+    {{kegDetails.activeKeg | titlecase}}
   </div>
   <div class="brand">
     Currently Serving: {{kegDetails.coffee.name}} by {{kegDetails.coffee.brand}}
     <br>
-    &nbsp;&nbsp;<button routerLink="/admin/change" routerLinkActive="active" class="col-md-2">Change
-      Coffee</button>&nbsp;&nbsp;
-    <button routerLink="/admin/adjust" routerLinkActive="active" class="col-md-2">Adjust Level </button> &nbsp;&nbsp;
-    <button routerLink="/admin/notifications" routerLinkActive="active" class="col-md-2">Notifications</button>
+    <button mat-raised-button (click)="openDialog('change')" class="col-md-2">Change Coffee</button>&nbsp;&nbsp;
+    <button mat-raised-button color="primary" (click)="openDialog('adjust')" routerLinkActive="active" class="col-md-2">Adjust Level </button> &nbsp;&nbsp;
+    <button mat-raised-button color="warn" (click)="openDialog('notify')" routerLinkActive="active" class="col-md-2">Notifications</button>
   </div>
 </div>
