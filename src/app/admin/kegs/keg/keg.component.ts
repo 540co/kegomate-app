@@ -67,14 +67,56 @@ export class KegComponent implements OnInit {
   selector: 'adjust-dialog',
   templateUrl: '../../dialogs/adjust.html',
 })
-export class AdjustDialog {
-  constructor() { }
+export class AdjustDialog implements OnInit {
+  public availableCoffees: any = [];
+  public adjustLevel: any = {
+    selectedCoffee: {},
+    newLevel: {}
+  };
+  
+  constructor(public kegomateService: KegomateService) { }
+
+  ngOnInit() {
+    this.getAvailableCoffees();
+  }
+
+  getAvailableCoffees() {
+    this.kegomateService.getCoffees().subscribe(
+      (data: any) => {
+        this.availableCoffees =  data;
+      },
+      err => console.error(err)
+    );
+  }
 }
 
 @Component({
   selector: 'notify-dialog',
   templateUrl: '../../dialogs/notify.html',
 })
+/*export class NotifyDialog implements OnInit {
+  public availableCoffees: any = [];
+  public notification: any = {
+    selectedCoffee: {},
+    notification: {}
+  };
+  
+  constructor(public kegomateService: KegomateService) { }
+
+  ngOnInit() {
+    this.getAvailableCoffees();
+  }
+
+  getAvailableCoffees() {
+    this.kegomateService.getCoffees().subscribe(
+      (data: any) => {
+        this.availableCoffees =  data;
+      },
+      err => console.error(err)
+    );
+  }
+}
+*/
 export class NotifyDialog {
   constructor() { }
 }
