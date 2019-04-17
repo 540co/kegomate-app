@@ -16,13 +16,14 @@ import { AdminComponent } from './admin/admin.component';
 import { LevelsComponent } from './home/levels/levels.component';
 import { ActivityComponent } from './home/activity/activity.component';
 import { ChartsComponent } from './home/charts/charts.component';
-import { KegsComponent } from './admin/kegs/kegs.component';
-import { KegComponent, ChangeDialog, AdjustDialog, NotifyDialog } from './admin/kegs/keg/keg.component';
+import { KegsComponent, AdjustDialog, NotifyDialog } from './admin/kegs/kegs.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { GaugeComponent } from './home/levels/gauge/gauge.component';
 import { ChangeComponent } from './admin/change/change.component';
 import { AdjustComponent } from './admin/adjust/adjust.component';
 import { NotificationsComponent } from './admin/notifications/notifications.component';
+
+import { ChangeDialog } from './admin/dialogs/change.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,6 @@ import { NotificationsComponent } from './admin/notifications/notifications.comp
     ActivityComponent,
     ChartsComponent,
     KegsComponent,
-    KegComponent,
     NavigationComponent,
     GaugeComponent,
     ChangeComponent,

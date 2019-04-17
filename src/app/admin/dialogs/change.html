@@ -1,9 +1,9 @@
-<h2 mat-dialog-title>Changing Keg: keg0</h2>
+<h2 mat-dialog-title>Changing Keg: {{data.keg}}</h2>
 <mat-dialog-content>
   <div class="example-form">
     <mat-form-field class="col-md-12">
       <mat-label>Select coffee...</mat-label>
-      <select matNativeControl [(ngModel)]="changeKeg.selectedCoffee">
+      <select matNativeControl [value]="" [(ngModel)]="changeKeg.selectedCoffee">
         <option value="">Select one...</option>
         <option *ngFor="let coffee of availableCoffees" [ngValue]="coffee">{{coffee.name}} by {{coffee.brand}}</option>
       </select>
@@ -12,7 +12,7 @@
     <div class="text-center">OR</div>
     <br />
     <div class="col-md-6 offset-md-3" *ngIf="changeKeg.isNewCoffee == false">
-      <button mat-raised-button color="warn" (click)="changeKeg.isNewCoffee = true" class="col-md-12">Add New Coffee</button>
+      <button mat-raised-button color="warn" (click)="changeKeg.isNewCoffee = true; changeKeg.selectedCoffee = {};" class="col-md-12">Add New Coffee</button>
     </div>
 
     <div class="col-md-12" *ngIf="changeKeg.isNewCoffee == true">
@@ -38,5 +38,5 @@
 <mat-dialog-actions>
   <button mat-button mat-dialog-close>Cancel</button>
   <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
-  <button mat-button [mat-dialog-close]="changeKeg">Submit</button>
+  <button mat-button [mat-dialog-close]="changeKeg" [disabled]="!changeKeg.selectedCoffee._id && (!changeKeg.newCoffee.name || !changeKeg.newCoffee.brand || !changeKeg.newCoffee.notes)">Submit</button>
 </mat-dialog-actions>
