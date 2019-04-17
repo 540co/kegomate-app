@@ -6,8 +6,8 @@
   <div class="brand">
     Currently Serving: {{kegDetails.coffee.name}} by {{kegDetails.coffee.brand}}
     <br>
-    <button mat-raised-button (click)="openDialog('change')" class="col-md-2">Change Coffee</button>&nbsp;&nbsp;
-    <button mat-raised-button color="primary" (click)="openDialog('adjust')" routerLinkActive="active" class="col-md-2">Adjust Level </button> &nbsp;&nbsp;
-    <button mat-raised-button color="warn" (click)="openDialog('notify')" routerLinkActive="active" class="col-md-2">Notifications</button>
+    <button mat-raised-button (click)="openChangeDialog(kegDetails.activeKeg)" class="col-md-2">Change Coffee</button>&nbsp;&nbsp;
+    <button mat-raised-button color="primary" (click)="openAdjustDialog(kegDetails.activeKeg)" routerLinkActive="active" class="col-md-2">Adjust Level </button> &nbsp;&nbsp;
+    <button mat-raised-button color="warn" (click)="openNotifyDialog(kegDetails.activeKeg)" routerLinkActive="active" class="col-md-2">Notifications</button>
   </div>
 </div>
