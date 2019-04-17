@@ -1,3 +1,15 @@
 <div *ngFor="let keg of activeKegs">
-  <app-keg [kegDetails]="keg"></app-keg>
+  <div class="keg-details">
+    <div class="name">
+      <br>
+      {{keg.activeKeg | titlecase}}
+    </div>
+    <div class="brand">
+      Currently Serving: {{keg.coffee.name}} by {{keg.coffee.brand}}
+      <br>
+      <button mat-raised-button (click)="openChangeDialog(keg.activeKeg)" class="col-md-2">Change Coffee</button>&nbsp;&nbsp;
+      <button mat-raised-button color="primary" (click)="openAdjustDialog(keg.activeKeg)" routerLinkActive="active" class="col-md-2">Adjust Level </button> &nbsp;&nbsp;
+      <button mat-raised-button color="warn" (click)="openNotifyDialog(keg.activeKeg)" routerLinkActive="active" class="col-md-2">Notifications</button>
+    </div>
+  </div>
 </div>
