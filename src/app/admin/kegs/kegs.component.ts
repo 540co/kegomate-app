@@ -67,16 +67,7 @@ export class KegsComponent implements OnInit {
         this.kegomateService.adjustLevel(updateLevel).subscribe((data) => {
           this.getActiveKegs();
         });
-      }/*
-      this.kegomateService.adjustLevel(result.newLevel).subscribe((newLevel: any) => {
-        const newVolume = newLevel.level.$numberLong;
-        const updateLevel = { adjLevel: newVolume, coffeeId: result.selectedCoffee._id.$oid };
-        this.kegomateService.adjustLevel(updateLevel).subscribe((data) => {
-          this.getActiveKegs();
-        });
-      },
-        err => console.error(err)
-      );*/
+      }
     }
     });
   }
