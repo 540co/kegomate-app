@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'kegomate-theme.scss';
 
+body {
+  background-color: #F5F5F5;
+}
+
 div:focus, div:active, img:focus, img:active, button:focus, button:active {
   outline: none;
 }
