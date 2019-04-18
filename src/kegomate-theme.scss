@@ -2,9 +2,30 @@
 
 @include mat-core();
 
-$keg-app-primary: mat-palette($mat-brown, 900);
-$keg-app-accent:  mat-palette($mat-blue-gray, 500);
-$keg-app-warn:    mat-palette($mat-deep-orange, 300);
+$primary: #f37652;
+$accent: #f37652;
+
+$coffee: (
+  100: #965F37,
+  700: #965F37,
+  contrast: (
+    100: white,
+    700: white,
+  )
+);
+
+$light-coffee: (
+  100: #C89544,
+  700: #C89544,
+  contrast: (
+    100: white,
+    700: white,
+  )
+);
+
+$keg-app-primary: mat-palette($coffee, 700);
+$keg-app-accent:  mat-palette($light-coffee, 700);
+$keg-app-warn:    mat-palette($mat-red, 500);
 
 $keg-app-theme: mat-light-theme($keg-app-primary, $keg-app-accent, $keg-app-warn);
 
