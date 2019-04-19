@@ -1,0 +1,33 @@
+language: node_js
+node_js:
+- '10'
+cache:
+  yarn: true
+before_script:
+  - sed -ri "s/STITCH_API_URL/$STITCH_API_URL/" src/environments/environment.prod.ts
+  - sed -ri "s/STITCH_API_SECRET/$STITCH_API_SECRET/" src/environments/environment.prod.ts
+script:
+  - yarn ng -- build --prod
+branches:
+  only:
+  - master
+before_deploy:
+  - export UPLOAD_DIR=$(hexdump -n 16 -e '4/4 "%08X" 1 "\n"' /dev/random)
+  - echo "UPLOAD_DIR = $UPLOAD_DIR"
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
+  - ruby ./.deploy/slack.rb -c frontend -s initiated -b $TRAVIS_BRANCH
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    skip_cleanup: true
+    bucket: 540-kegomate-artifacts
+    local-dir: dist/kegomate
+    upload-dir: $UPLOAD_DIR
+    on:
+      all_branches: true
+after_deploy:
+  - ./.deploy/s3_sync.sh
+  - ./.deploy/cf_invalidation.sh
+  - ruby ./.deploy/slack.rb -c frontend -s success -b $TRAVIS_BRANCH
