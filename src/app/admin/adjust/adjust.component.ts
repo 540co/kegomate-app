@@ -8,12 +8,6 @@ import { KegomateService } from 'src/app/services/kegomate.service';
 })
 
 export class AdjustComponent implements OnInit {
- // public kegs: any[] = [
- //   {id: 'Select'},
- //   {id:1},
- //   {id:2},
- //   {id:3}
- // ];
  public activeKegs: any = null;
 
  constructor(private kegomateServive: KegomateService) { }

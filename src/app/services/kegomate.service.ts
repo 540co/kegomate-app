@@ -54,4 +54,12 @@ export class KegomateService {
     let httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' } ) };
     return this.http.post('https://webhooks.mongodb-stitch.com/api/client/v2.0/app/kegomate-test-fnmug/service/Kegomate/incoming_webhook/update_setup?secret=kegomate_development_secret', body, httpOptions);
   }
+  adjustLevel (updateLevel) {
+    const body = {
+      adjustedVolume: updateLevel.adjLevel,
+      tapId: updateLevel.activeKeg
+    };
+    let httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' } ) };
+    return this.http.put('https://webhooks.mongodb-stitch.com/api/client/v2.0/app/kegomate-test-fnmug/service/Kegomate/incoming_webhook/update_level?secret=kegomate_development_secret', body, httpOptions);
+  }
 }

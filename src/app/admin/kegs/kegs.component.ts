@@ -3,6 +3,7 @@ import { KegomateService } from 'src/app/services/kegomate.service';
 
 import { MatDialog } from '@angular/material';
 import { ChangeDialog } from '../dialogs/change.component';
+import { AdjustDialog } from '../dialogs/adjust.component';
 
 @Component({
   selector: 'app-kegs',
@@ -12,7 +13,7 @@ import { ChangeDialog } from '../dialogs/change.component';
 
 export class KegsComponent implements OnInit {
   public activeKegs: any = null;
-
+ 
   constructor(public dialog: MatDialog, public kegomateService: KegomateService) { }
 
   ngOnInit() {
@@ -55,12 +56,19 @@ export class KegsComponent implements OnInit {
     });
   }
 
-  openAdjustDialog(type, keg): void {
+  openAdjustDialog(keg): void {
     let dialogRef = this.dialog.open(AdjustDialog, {
+      data: {keg: keg },
       minWidth: '40%'
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed: ', result);
+     if (result) {// Just update level
+     {  const updateLevel = { adjLevel: Number(result.newLevel.level), activeKeg: keg}
+        this.kegomateService.adjustLevel(updateLevel).subscribe((data) => {
+          this.getActiveKegs();
+        });
+      }
+    }
     });
   }
 
@@ -75,59 +83,10 @@ export class KegsComponent implements OnInit {
 }
 
 @Component({
-  selector: 'adjust-dialog',
-  templateUrl: '../dialogs/adjust.html',
-})
-export class AdjustDialog implements OnInit {
-  public availableCoffees: any = [];
-  public adjustLevel: any = {
-    selectedCoffee: {},
-    newLevel: {}
-  };
-  
-  constructor(public kegomateService: KegomateService) { }
-
-  ngOnInit() {
-    this.getAvailableCoffees();
-  }
-
-  getAvailableCoffees() {
-    this.kegomateService.getCoffees().subscribe(
-      (data: any) => {
-        this.availableCoffees =  data;
-      },
-      err => console.error(err)
-    );
-  }
-}
-
-@Component({
   selector: 'notify-dialog',
   templateUrl: '../dialogs/notify.html',
 })
-/*export class NotifyDialog implements OnInit {
-  public availableCoffees: any = [];
-  public notification: any = {
-    selectedCoffee: {},
-    notification: {}
-  };
-  
-  constructor(public kegomateService: KegomateService) { }
 
-  ngOnInit() {
-    this.getAvailableCoffees();
-  }
-
-  getAvailableCoffees() {
-    this.kegomateService.getCoffees().subscribe(
-      (data: any) => {
-        this.availableCoffees =  data;
-      },
-      err => console.error(err)
-    );
-  }
-}
-*/
 export class NotifyDialog {
   constructor() { }
 }
