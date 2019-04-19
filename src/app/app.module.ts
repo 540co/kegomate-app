@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule, MatButtonModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatDialogModule, MatExpansionModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatStepperModule } from '@angular/material';
 
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 import { KegomateService } from './services/kegomate.service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +27,7 @@ import { NotificationsComponent } from './admin/notifications/notifications.comp
 
 import { ChangeDialog } from './admin/dialogs/change.component';
 import { AdjustDialog } from './admin/dialogs/adjust.component';
+import { LineComponent } from './home/charts/line/line.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,8 @@ import { AdjustDialog } from './admin/dialogs/adjust.component';
     NotificationsComponent,
     ChangeDialog,
     AdjustDialog,
-    NotifyDialog
+    NotifyDialog,
+    LineComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,8 @@ import { AdjustDialog } from './admin/dialogs/adjust.component';
     HttpModule,
     HttpClientModule,
     FormsModule,
-    MatAutocompleteModule, MatButtonModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatDialogModule, MatExpansionModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatStepperModule
+    MatAutocompleteModule, MatButtonModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatDialogModule, MatExpansionModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatStepperModule,
+    NgxChartsModule
   ],
   providers: [
     KegomateService
