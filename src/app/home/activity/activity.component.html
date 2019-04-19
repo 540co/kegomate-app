@@ -2,10 +2,10 @@
   <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" *ngFor="let event of activity">
     <div class="toast-header">
       <strong class="mr-auto"><i class="fas fa-coffee"></i>&nbsp;&nbsp;Mmmm Coffee</strong>
-      <small>{{event.time}}</small>
+      <small>{{event.timestamp.$date.$numberLong | date:'medium'}}</small>
     </div>
     <div class="toast-body">
-      {{event.user.name}} poured {{event.volume.$numberDouble || event.volume.$numberLong}}oz of {{event.coffee.name}}
+      {{event.user.name}} poured {{event.volume.$numberDouble || event.volume.$numberLong | number: '1.0-2' }}oz of {{event.coffee.name}}
     </div>
   </div>
 </div>

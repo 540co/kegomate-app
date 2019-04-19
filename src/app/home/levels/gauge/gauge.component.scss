@@ -1,12 +1,12 @@
 .gauge-container {
-  margin-top: 8vw;
+  margin-top: 9vw;
   text-align: center;
   .keg-meter {
     align-items: center;
     transform: rotate(-90deg);
     .progress {
       height: 6vw;
-      width: 120%;
+      width: 130%;
       box-shadow: 0 0.15rem 0.3rem rgba(0,0,0,.3);
       background-color: #EFEBE9;
       .progress-bar {
