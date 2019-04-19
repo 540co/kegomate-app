@@ -12,17 +12,18 @@ import { resolve } from 'q';
 export class KegomateService {
 
   private baseUrl = environment.apiUrl;
+  private secret = environment.apiSecret;
 
   constructor(private http: HttpClient) { }
 
   getActiveKegs () {
     let httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' } ) };
-    return this.http.get('https://webhooks.mongodb-stitch.com/api/client/v2.0/app/kegomate-test-fnmug/service/Kegomate/incoming_webhook/get_setup?secret=kegomate_development_secret', httpOptions);
+    return this.http.get(this.baseUrl + '/get_setup?secret=' + this.secret, httpOptions);
   }
 
   getRecentActivity () {
     let httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' } ) };
-    return this.http.get('https://webhooks.mongodb-stitch.com/api/client/v2.0/app/kegomate-test-fnmug/service/Kegomate/incoming_webhook/get_drinks?secret=kegomate_development_secret', httpOptions);
+    return this.http.get(this.baseUrl + '/get_drinks?secret=' + this.secret, httpOptions);
   }
 
   addCoffee (newCoffee) {
@@ -33,17 +34,17 @@ export class KegomateService {
       caffeine: newCoffee.caffeine
     }
     let httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' } ) };
-    return this.http.post('https://webhooks.mongodb-stitch.com/api/client/v2.0/app/kegomate-test-fnmug/service/Kegomate/incoming_webhook/post_coffee?secret=kegomate_development_secret', body, httpOptions);
+    return this.http.post(this.baseUrl + '/post_coffee?secret=' + this.secret, body, httpOptions);
   }
 
   getCoffees () {
     let httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' } ) };
-    return this.http.get('https://webhooks.mongodb-stitch.com/api/client/v2.0/app/kegomate-test-fnmug/service/Kegomate/incoming_webhook/get_coffee?secret=kegomate_development_secret', httpOptions);
+    return this.http.get(this.baseUrl + '/get_coffee?secret=' + this.secret, httpOptions);
   }
 
   getUsers () {
     let httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' } ) };
-    return this.http.get('https://webhooks.mongodb-stitch.com/api/client/v2.0/app/kegomate-test-fnmug/service/Kegomate/incoming_webhook/get_users?secret=kegomate_development_secret', httpOptions);
+    return this.http.get(this.baseUrl + '/get_users?secret=' + this.secret, httpOptions);
   }
 
   changeKeg (updateKeg) {
@@ -52,14 +53,15 @@ export class KegomateService {
       coffeeId: updateKeg.coffeeId
     };
     let httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' } ) };
-    return this.http.post('https://webhooks.mongodb-stitch.com/api/client/v2.0/app/kegomate-test-fnmug/service/Kegomate/incoming_webhook/update_setup?secret=kegomate_development_secret', body, httpOptions);
+    return this.http.post(this.baseUrl + '/update_setup?secret=kegomate_development_secret' + this.secret, body, httpOptions);
   }
+  
   adjustLevel (updateLevel) {
     const body = {
       adjustedVolume: updateLevel.adjLevel,
       tapId: updateLevel.activeKeg
     };
     let httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' } ) };
-    return this.http.put('https://webhooks.mongodb-stitch.com/api/client/v2.0/app/kegomate-test-fnmug/service/Kegomate/incoming_webhook/update_level?secret=kegomate_development_secret', body, httpOptions);
+    return this.http.put(this.baseUrl + '/update_level?secret=' + this.secret, body, httpOptions);
   }
 }
