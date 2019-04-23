@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { KegomateService } from 'src/app/services/kegomate.service';
+import * as shape from 'd3-shape';
+
 @Component({
   selector: 'kegomate-line-chart',
   templateUrl: './line.component.html',
@@ -16,6 +18,7 @@ export class LineComponent implements OnInit {
   legendPosition = 'below';
   showXAxisLabel = false;
   showYAxisLabel = false;
+  curve = shape.curveNatural;
   colorScheme = {
     domain: ['#000000', '#965f37', '#c09f87']
   };

@@ -1,5 +1,16 @@
 .activity-container {
   padding: 10px 20px;
+  .header {
+    display: inline-block;
+    width: 100%;
+    h5 {
+      float: left;
+    }
+    .icon {
+      font-size: 1.8em;
+      margin-top: -.2em;
+    }
+  }
   .toast {
     overflow: hidden;
     font-size: .875rem;
