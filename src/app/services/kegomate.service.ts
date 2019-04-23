@@ -53,7 +53,7 @@ export class KegomateService {
       coffeeId: updateKeg.coffeeId
     };
     let httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' } ) };
-    return this.http.post(this.baseUrl + '/update_setup?secret=kegomate_development_secret' + this.secret, body, httpOptions);
+    return this.http.post(this.baseUrl + '/update_setup?secret=' + this.secret, body, httpOptions);
   }
   
   adjustLevel (updateLevel) {
@@ -63,5 +63,10 @@ export class KegomateService {
     };
     let httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' } ) };
     return this.http.put(this.baseUrl + '/update_level?secret=' + this.secret, body, httpOptions);
+  }
+
+  getReports () {
+    let httpOptions = { headers: new HttpHeaders( { 'Content-Type': 'application/json' } ) };
+    return this.http.get(this.baseUrl + '/get_reports?secret=' + this.secret, httpOptions);
   }
 }
