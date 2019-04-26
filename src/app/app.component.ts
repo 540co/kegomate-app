@@ -10,10 +10,9 @@ export class AppComponent  implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // Uncomment for auto-reload
-    // setTimeout(function(){
-    //   window.location.reload();
-    // }, 60000);
+    setTimeout(function(){
+      window.location.reload();
+    }, 30000);
   }
 
 }
