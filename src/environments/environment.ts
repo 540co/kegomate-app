@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://webhooks.mongodb-stitch.com/api/client/v2.0/app/kegomate-test-fnmug/service/Kegomate/incoming_webhook',
-  apiSecret: 'kegomate_development_secret'
+  apiUrl: 'STITCH_API_URL',
+  apiSecret: 'STITCH_API_SECRET'
 };
 
 /*
