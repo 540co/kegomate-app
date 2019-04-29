@@ -4,10 +4,11 @@ node_js:
 cache:
   yarn: true
 before_script:
-  - sed -ri "s|STITCH_API_URL|$STITCH_API_URL|" src/environments/environment.aws.ts
-  - sed -ri "s/STITCH_API_SECRET/$STITCH_API_SECRET/" src/environments/environment.aws.ts
+  - cp src/environments/environment.ts.SAMPLE src/environments/environment.ts
+  - sed -ri "s|STITCH_API_URL|$STITCH_API_URL|" src/environments/environment.ts
+  - sed -ri "s/STITCH_API_SECRET/$STITCH_API_SECRET/" src/environments/environment.ts
 script:
-  - yarn ng build --configuration=aws
+  - yarn ng build
 branches:
   only:
   - master
