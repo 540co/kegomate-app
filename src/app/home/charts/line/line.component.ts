@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { KegomateService } from 'src/app/services/kegomate.service';
+
+import * as moment from 'moment';
 import * as shape from 'd3-shape';
 
 @Component({
@@ -18,7 +20,7 @@ export class LineComponent implements OnInit {
   legendPosition = 'below';
   showXAxisLabel = false;
   showYAxisLabel = false;
-  curve = shape.curveNatural;
+  curve = shape.curveMonotoneX;
   colorScheme = {
     domain: ['#000000', '#965f37', '#c09f87']
   };
@@ -34,26 +36,53 @@ export class LineComponent implements OnInit {
   }
 
   getReportData() {
+    let seriesData = [];
+    let date = moment();
+    while(seriesData.length < 11) {
+      if (date.day() > 0 && date.day() < 6) {
+        seriesData.push({ name: date.format("YYYY-MM-DD"), value: 0 });
+      }
+      date = date.subtract(1, 'days');
+    }
+    seriesData.reverse();
     const results = [];
-    const keg0data = { name: "keg0", series: [] };
-    const keg1data = { name: "keg1", series: [] };
-    const keg2data = { name: "keg2", series: [] };
+    let keg0data = { name: "keg0", series: [] };
+    let keg1data = { name: "keg1", series: [] };
+    let keg2data = { name: "keg2", series: [] };
     this.kegomateServive.getReports().subscribe(
       (data: any) => {
         const keg0 = data.dailyCounts.filter(entry => {
           return entry._id.keg === 'keg0';
-        }).forEach(drink => {
-          keg0data.series.push({ name: drink._id.yearMonthDay, value: parseInt(drink.dailyTotal.$numberDouble) })
-        });;
+        });
+        seriesData.forEach(date => {
+          var found = keg0.find(drink => date.name === drink._id.yearMonthDay);
+          if (found) {
+            keg0data.series.push({ name: found._id.yearMonthDay, value: parseInt(found.dailyTotal.$numberDouble) });
+          } else {
+            keg0data.series.push({ name: date.name, value: 0 });
+          }
+        });
         const keg1 = data.dailyCounts.filter(entry => {
           return entry._id.keg === 'keg1';
-        }).forEach(drink => {
-          keg1data.series.push({ name: drink._id.yearMonthDay, value: parseInt(drink.dailyTotal.$numberDouble) })
-        });;
+        });
+        seriesData.forEach(date => {
+          var found = keg1.find(drink => date.name === drink._id.yearMonthDay);
+          if (found) {
+            keg1data.series.push({ name: found._id.yearMonthDay, value: parseInt(found.dailyTotal.$numberDouble) });
+          } else {
+            keg1data.series.push({ name: date.name, value: 0 });
+          }
+        });
         const keg2 = data.dailyCounts.filter(entry => {
           return entry._id.keg === 'keg2';
-        }).forEach(drink => {
-          keg2data.series.push({ name: drink._id.yearMonthDay, value: parseInt(drink.dailyTotal.$numberDouble) })
+        });
+        seriesData.forEach(date => {
+          var found = keg2.find(drink => date.name === drink._id.yearMonthDay);
+          if (found) {
+            keg2data.series.push({ name: found._id.yearMonthDay, value: parseInt(found.dailyTotal.$numberDouble) });
+          } else {
+            keg2data.series.push({ name: date.name, value: 0 });
+          }
         });
         results.push(keg0data, keg1data, keg2data);
         this.results = results;
