@@ -10,6 +10,7 @@
       {{kegDetails.coffee.name}}
       <i class="fas fa-exclamation-triangle text-danger" *ngIf="(kegDetails.estRemaining.$numberDouble || kegDetails.estRemaining.$numberLong) <= 20"></i>
     </div>
-    <div class="brand">{{kegDetails.coffee.brand}}</div>
+    <div class="brand"><b>{{kegDetails.coffee.brand}}</b></div>
+    <div class="remaining">{{(kegDetails.estRemaining.$numberDouble / 660)*100 | number : '1.0-0'}}% Remaining</div>
   </div>
 </div>

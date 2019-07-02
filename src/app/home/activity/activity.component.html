@@ -4,9 +4,9 @@
     <div class="float-right" style="margin-top: -.8em;">
       <b>Caffeine meter:</b>&nbsp;
       <span class="icon" *ngIf="hypeReading <= 24">😴</span>
-      <span class="icon" *ngIf="hypeReading > 24 &&  hypeReading <= 100">😑</span>
-      <span class="icon" *ngIf="hypeReading > 100 &&  hypeReading <= 200">😁</span>
-      <span class="icon" *ngIf="hypeReading > 200">🤯</span>
+      <span class="icon" *ngIf="hypeReading > 24 &&  hypeReading <= 64">😑</span>
+      <span class="icon" *ngIf="hypeReading > 64 &&  hypeReading <= 128">😁</span>
+      <span class="icon" *ngIf="hypeReading > 128">🤯</span>
       <small>({{hypeReading | number: '1.0-2'}}oz.)</small>
     </div>
   </div>

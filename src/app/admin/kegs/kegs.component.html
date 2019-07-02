@@ -2,13 +2,13 @@
   <div class="keg-details">
     <div class="name">
       <br>
-      {{keg.activeKeg | titlecase}}
+      {{keg.activeKeg | titlecase}}: {{keg.coffee.name}} by {{keg.coffee.brand}}
     </div>
     <div class="brand">
-      Currently Serving: {{keg.coffee.name}} by {{keg.coffee.brand}}
+      Est. Remaining: {{(keg.estRemaining.$numberDouble / 660)*100 | number : '1.0-0'}}% ({{keg.estRemaining.$numberDouble | number : '1.2-2'}} oz.)
       <br>
       <button mat-raised-button color="primary"(click)="openChangeDialog(keg.activeKeg)" class="col-md-2">Change Coffee</button>&nbsp;&nbsp;
-      <button mat-raised-button color="accent" (click)="openAdjustDialog(keg.activeKeg)" routerLinkActive="active" class="col-md-2">Adjust Level </button> &nbsp;&nbsp;
+      <button mat-raised-button color="accent" (click)="openAdjustDialog(keg)" routerLinkActive="active" class="col-md-2">Adjust Level </button> &nbsp;&nbsp;
       <button mat-raised-button color="warn" (click)="openNotifyDialog(keg.activeKeg)" routerLinkActive="active" class="col-md-2">Notifications</button>
     </div>
   </div>

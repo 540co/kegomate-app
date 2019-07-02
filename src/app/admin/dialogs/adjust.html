@@ -1,4 +1,5 @@
-<h2 mat-dialog-title>Adjusting Level: {{data.keg}}</h2>
+<h2 mat-dialog-title>Adjusting Level: {{data.keg.activeKeg}}</h2>
+<h4 mat-dialog-title>Current Remaining: {{(data.keg.estRemaining.$numberDouble / 660)*100 | number : '1.0-0'}}% ({{data.keg.estRemaining.$numberDouble | number : '1.2-2'}} oz.)</h4>
 <mat-dialog-content>
     <div class="example-form">
         <div class="col-md-12">
